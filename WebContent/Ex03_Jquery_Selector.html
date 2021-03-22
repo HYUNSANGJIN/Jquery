@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+		$(document).ready(function() { // ready == onload
+			
+			// 선택자
+			$('body > *').css("color", "blue"); // > : 자식선택자   * : 모든요소
+			// ㄴ body에 있는 모든 자식요소의 색깔을 blue로 해라
+			
+			$('div > *').css("color", "red"); // div태그에 자식요소의 색깔을 red로 해라
+			
+			$('input[type=text]').css("color", "green"); // 속성선택자
+			
+			/*
+				기존 : value, text(innerHTML, innerTEXT)
+				ㄴ 이걸 대체하는 함수는?
+						ㄴ 3개함수가 있음(val(), text(), html()) -> 값을 read하거나 write할수있음
+						   ㄴ getter, setter 역할을 함
+						   ㄴ ex) val('홍길동') >> setter의 역할(write)
+						   ㄴ ex) val() >> getter의 역할(read) >> 매개변수가 없으면!!
+						   
+				jquery는 id를 활용해서 더 편하게 사용 할수 있는데
+				ㄴ <input type="text" id="userid" value="aaa">  -> $('#userid').val() -> aaa(return 값)
+				ㄴ <input type="text" id="userid" value="aaa">  -> $('#userid').val("bbb")
+				   ㄴ <input type="text" id="userid" value="bbb"> ....
+				   
+				document.getElementById("userid").value = "bbb"
+				
+			*/
+			$('input[type=text]').val("hong");
+		    // ***read([처음 만나는] 요소만 적용)  -> val()
+		    // ***write([모든요소] 적용 ) -> val(111)
+		    
+		    $('input[type=password]').val("1111");
+		    // 모든요소에 적용
+		    
+		    $('tr:odd').css("background", "gray"); // 1,3,5   odd : 홀수
+		    $('tr:even').css("background", "pink"); // 0,2,4  even : 짝수
+		    
+		    // jquery와 javascript 혼합 사용가능함??
+		    // ㄴ 사용됨!!
+		    setTimeout(function() {
+		    	let value = $('select > option:selected').val(); // getter->read[처음 만나는 요소 적용]
+		    	alert("select tag value : " + value);
+		    }, 3000);
+		});
+	</script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>사과</li>
+			<li>배</li>
+			<li>수박</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>사과2</li>
+			<li>배2</li>
+			<li>수박2</li>
+		</ul>
+	</div>
+	<input type="text" value="AAA">
+	<input type="text" value="BBB">
+	<input type="text" value="CCC">
+	<input type="password">
+	<input type="radio">
+	<input type="file">
+	<hr>
+	<table>
+		<tr>
+			<td>이름</td>
+			<td>나이</td>
+			<td>취미</td>
+		</tr>
+		<tr>
+			<td>홍길동</td>
+			<td>50</td>
+			<td>훔치기</td>
+		</tr>
+		<tr>
+			<td>이순신</td>
+			<td>10</td>
+			<td>싸움</td>
+		</tr>
+		<tr>
+			<td>학생</td>
+			<td>30</td>
+			<td>잠자기</td>
+		</tr>
+	</table>
+	<hr>
+	<select>
+		<option>농구</option>
+		<option>축구</option>
+		<option>야구</option>
+		<option>배구</option>
+	</select>	
+</body>
+</html>

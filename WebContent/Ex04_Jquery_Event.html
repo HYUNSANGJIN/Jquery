@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	
+		//$(document).ready(function(){});
+		$(function(){ //줄임표현
+			$('#btncopy').click(function() {
+			//let data = $('#txtuserid').val();
+			//$('#txtcopyuserid').val(data);
+			
+			// 위 코드를 더 간단하게 표현하자면..?
+			$('#txtcopyuserid').val($('#txtuserid').val());
+			});
+		
+			// select 태그
+			$('#select_hobby').change(function() { // 값의 변화가 일어나면
+				const text = $(':selected').text();
+				const text2 = $('#select_hobby option:selected').text();
+				const val = $('#select_hobby').val();
+				console.log(text);
+				console.log(text2);
+				console.log(val);
+			});
+			
+			$('#txtpwd2').keyup(function() {  // keyup : 자판을 눌렀다가 떼었을때
+				if($('#txtpwd').val() != $('#txtpwd2').val()){
+					
+					//innerHTML(태그가 해석됨)과  innerTEXT(태그 자체도 텍스트로 나온다)는 다름
+					$('#message').html("<h3>암호가 일치하지 않아요</h3>");
+				}else{
+					$('#message').html("<h3>암호가 일치합니다</h3>");
+				}
+			});
+			
+			//console.log($('input'));
+			// ㄴ <body>안에 있는 모든 <input>를 들고옴 ->  Array
+			$('input').focus(function() { // focus : 마우스를 칸 안에 클릭하면 칸안이 gray색으로 채워짐
+				console.log($(this));
+				$(this).css('background-color', 'gray');
+			});
+		 
+		$('input').blur(function() {  // blur : 칸을 선택후 다른칸을 선택하면 전 칸은 white로 채워짐
+			console.log($(this));
+			$(this).css('background-color', 'white');
+		});
+		
+		// toggle (on 아니면 off) 이벤트
+		// .hover(function(){},function(){})
+		$('p').hover(function () {
+			$(this).css('background-color', 'gold');
+		}, function() {
+			$(this).css('background-color', 'red');
+		});
+	
+		});
+		
+	
+		
+	</script>
+</head>
+<body>
+<p>Jquery hover(mouseover , mouseleave)</p>
+	
+	ID:<input type="text" id="txtuserid">
+	<hr>
+	<input type="button" id="btncopy" value="copy">
+	<hr>
+	Copy ID:<input type="text" id="txtcopyuserid">
+	
+	<hr>
+	<select id="select_hobby">
+		<option value="JAVA">java</option>
+		<option value="SCRIPT"> script</option>
+		<option>jdbc</option>
+	</select>
+	<br>
+	<input type="text" id="txtselect">
+	<hr>
+	<table style="border: 1px solid red;">
+		<tr>
+			<td>암호</td>
+			<td>
+				<input type="text" id="txtpwd" size="20" maxlength="5">
+			</td>
+		</tr>
+		<tr>
+			<td>암호확인</td>
+			<td>
+				<input type="text" id="txtpwd2" size="20" maxlength="5">
+			</td>
+		</tr>
+	</table>
+	<div id="message" style="color: red"></div>
+</body>
+</html>
