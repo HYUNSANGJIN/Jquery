@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 필수 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--  Jquery  UI (js 파일(함수) , css 파일)  -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<link rel="stylesheet" 	href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+		$(document).ready(function(){
+			  var availableTags = [
+			      "ActionScript",
+			      "AppleScript",
+			      "Asp",
+			      "BASIC",
+			      "C",
+			      "C++",
+			      "Clojure",
+			      "COBOL",
+			      "ColdFusion",
+			      "Erlang",
+			      "Fortran",
+			      "Groovy",
+			      "Haskell",
+			      "Java",
+			      "JavaScript",
+			      "Lisp",
+			      "Perl",
+			      "PHP",
+			      "Python",
+			      "Ruby",
+			      "Scala",
+			      "Scheme"
+			    ];
+			  
+			  // 직접 구현 : autocomplete 함수
+			  
+			  
+			  
+			  /*
+			  $('#tags').autocomplete(
+				{
+					source:availableTags
+				}		  
+			  );
+			  */
+		});
+	</script>
+</head>
+<body>
+	<div class="ui-widget">
+  	<label for="tags">Tags: </label>
+  	<input id="tags">
+</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 필수 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--  Jquery  UI (js 파일(함수) , css 파일)  -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+<link rel="stylesheet" 	href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+<style type="text/css">
+
+</style>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('#datepicker').datepicker(
+				{
+					dateFormat: "yy-mm-dd", // 날짜 포맷  -> string(포맷을 입히면 무조건 "문자열")
+					numberOfMonths: 1, // 달력갯수
+					onSelect: function(date){alert("onSelect: " + date);}, //이벤트
+					onClose: function(date){
+						console.log(typeof(date)); //string
+						let currentdate = $('#datepicker').datepicker('getDate');
+						console.log(typeof(currentdate)); //object
+						let date2 = new Date(currentdate);
+						alert(date2.getFullYear()+" / " + date2.getDate());
+					}
+				}		
+			);
+		});
+	</script>
+</head>
+<body>
+		<p>
+			Date : <input type="text" id="datepicker">
+		</p>
+	
+</body>
+</html>

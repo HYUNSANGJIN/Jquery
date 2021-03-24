@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<!-- 필수 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!--  Jquery  UI (js 파일(함수) , css 파일)  -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+	<link rel="stylesheet" 	href="//code.jquery.com/ui/1.12.1/themes/sunny/jquery-ui.css">
+	<style type="text/css">
+	   
+	</style>
+<script type="text/javascript">
+		$(document).ready(function(){
+		//	$('#dialog').dialog(); -> page가 load 되자마자 뜸
+		
+			$('#datepicker').datepicker(
+				{dateFormat: "yy년mm월dd일"}		
+			);
+		
+			$('#dialog').dialog(
+				{
+					autoOpen: false,  //자동으로 안열림
+					show: {effect:"blind", duration:2000},
+					hide: {effect:"explode", duration:1000},
+					buttons: {
+									"확인":function(){$(this).dialog('close')},
+									"취소":function(){$(this).dialog('close')}
+							},
+							resizable: false,  // 사이즈 조절 안됨
+							modal: true // 팝업을 닫기 전까지는 부모창에 대한 접근 불가
+				}		
+			);
+		
+			$('#opener').click(function(){
+				$('#dialog').dialog("open"); // autoOpen: true랑 같음
+			});
+		});
+		
+		
+		
+	</script>
+</head>
+<body>
+		<p>오늘은 무슨요일??</p>
+		Date:<input type="text" id="datepicker">
+		<hr>
+		
+		<button id="opener">open popup</button>
+		
+		<!-- dialog(팝업창 만들기) -->
+		<div id="dialog" title="오늘은!!">
+				<p>수요일</p>
+		</div>
+</body>
+</html>
+
+
+
+
+
